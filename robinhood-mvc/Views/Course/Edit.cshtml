@@ -1,0 +1,60 @@
+@model Course
+
+<form asp-action="Create"
+      asp-controller="Course"
+      class="me-auto ms-auto p-3 w-50"
+      method="post"
+      style="
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);">
+	<h1 class="mb-3 text-center"
+	    style="border-bottom: 1px solid #262626">Add Course</h1>
+	<div class="mb-3 row">
+		<div class="col-6">
+			<label class="mb-2" for="nameInput">Name</label>
+			<input asp-for="Name" type="text" class="form-control" id="nameInput" placeholder="@Model.Name"/>
+		</div>
+		<div class="col-6">
+			<label class="mb-2" for="instructorInput">Instructor</label>
+			<input asp-for="Instructor" type="text" class="form-control" id="instructorInput"  placeholder="@Model.Instructor"/>
+		</div>
+	</div>
+	<div class="mb-5 row">
+		<div class="col-4">
+			<label class="mb-2" for="semesterInput">Semester</label>
+			<select asp-for="Semester" value="@Model.Semester" class="form-control" id="semesterInput">
+				<option disabled selected value="">Choose...</option>
+				<option value="Fall">Fall</option>
+				<option value="Spring">Spring</option>
+				<option value="Summer">Summer</option>
+			</select>
+		</div>
+		<div class="col-4">
+			<label class="mb-2" for="yearInput">Year</label>
+			<select asp-for="Year" value="@Model.Year" class="form-control" id="yearInput">
+				<option disabled selected value="">Choose...</option>
+				<option value="2019-2020">2019-2020</option>
+				<option value="2020-2021">2020-2021</option>
+				<option value="2021-2022">2021-2022</option>
+			</select>
+		</div>
+		<div class="col-4">
+			<label class="mb-2" for="ratingInput">Rating</label>
+			<select asp-for="Rating" value="@Model.Rating" class="form-control" id="ratingInput">
+				<option disabled selected value="">Choose...</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<input asp-action="Edit"
+		       asp-controller="Course"
+		       class="btn btn-primary me-auto ms-auto w-auto"
+		       type="submit"
+		       value="Edit Course"/>
+	</div>
+</form>

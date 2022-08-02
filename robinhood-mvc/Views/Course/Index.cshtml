@@ -1,0 +1,53 @@
+@model List<Course>
+@{
+	ViewData["Title"] = "Course Page";
+}
+
+<h1 class="text-center mb-3">Courses</h1>
+
+<table class="table table-hover table-striped mb-5">
+	<thead class="table-dark">
+	<tr>
+		<th scope="col">#</th>
+		<th scope="col">Name</th>
+		<th class="text-center" scope="col">Instructor</th>
+		<th class="text-center" scope="col">Semester</th>
+		<th class="text-center" scope="col">Year</th>
+		<th class="text-center" scope="col">Rating</th>
+		<th class="text-center" scope="col">Action</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var course in Model)
+	{
+		<tr>
+			<th scope="row">@course.Id</th>
+			<td>@course.Name</td>
+			<td class="text-center">@course.Instructor</td>
+			<td class="text-center">@course.Semester</td>
+			<td class="text-center">@course.Year</td>
+			<td class="text-center">@course.Rating</td>
+			<td class="text-center">
+				<a asp-action="Get"
+				   asp-controller="Course"
+				   asp-route-id="@course.Id"
+				   class="btn btn-warning">View</a>
+				<a asp-action="Edit"
+				   asp-controller="Course"
+				   asp-route-id="@course.Id"
+				   class="btn btn-primary">Edit</a>
+				<a asp-action="Delete"
+				        asp-controller="Course"
+				        asp-route-id="@course.Id"
+				        class="btn btn-danger">Delete</a>
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+	<a asp-action="Create"
+	   asp-controller="Course"
+	   class="btn btn-success" >Add course</a>
+</div>
