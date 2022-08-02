@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/khaledchehabeddine/RiderProjects/robinhood-mvc/robinhood-mvc/robinhood-mvc.csproj",
+      "projectUniqueName": "/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/robinhood-mvc.csproj",
       "projectName": "robinhood-mvc",
-      "projectPath": "/Users/khaledchehabeddine/RiderProjects/robinhood-mvc/robinhood-mvc/robinhood-mvc.csproj",
+      "projectPath": "/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/robinhood-mvc.csproj",
       "packagesPath": "/Users/khaledchehabeddine/.nuget/packages/",
-      "outputPath": "/Users/khaledchehabeddine/RiderProjects/robinhood-mvc/robinhood-mvc/obj/",
+      "outputPath": "/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/khaledchehabeddine/.nuget/NuGet/NuGet.Config"
