@@ -1169,24 +1169,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/khaledchehabeddine/.nuget/packages/": {}
+    "C:\\Users\\Hashem Shibli\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/robinhood-mvc.csproj",
+      "projectUniqueName": "C:\\Users\\Hashem Shibli\\Desktop\\robinHood\\robinhood-mvc\\robinhood-mvc\\robinhood-mvc.csproj",
       "projectName": "robinhood-mvc",
-      "projectPath": "/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/robinhood-mvc.csproj",
-      "packagesPath": "/Users/khaledchehabeddine/.nuget/packages/",
-      "outputPath": "/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/obj/",
+      "projectPath": "C:\\Users\\Hashem Shibli\\Desktop\\robinHood\\robinhood-mvc\\robinhood-mvc\\robinhood-mvc.csproj",
+      "packagesPath": "C:\\Users\\Hashem Shibli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hashem Shibli\\Desktop\\robinHood\\robinhood-mvc\\robinhood-mvc\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/khaledchehabeddine/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Hashem Shibli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1234,7 +1236,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/khaledchehabeddine/.dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

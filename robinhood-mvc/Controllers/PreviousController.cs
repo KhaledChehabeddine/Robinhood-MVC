@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using robinhood_mvc.Data;
 using robinhood_mvc.Models;
 
 namespace robinhood_mvc.Controllers;
@@ -8,9 +9,9 @@ namespace robinhood_mvc.Controllers;
 [ApiController]
 public class PreviousController : ControllerBase
 {
-    private readonly ApiContext _context;
+    private readonly RobinhoodContext _context;
     
-    public PreviousController(ApiContext context)
+    public PreviousController(RobinhoodContext context)
     {
         _context = context;
     }
@@ -21,7 +22,7 @@ public class PreviousController : ControllerBase
         if (previous.Id == 0) _context.Previouses.Add(previous);
         else
         {
-            var previousInDb = _context.Instructors.Find(previous.Id);
+            var previousInDb = _context.Previouses.Find(previous.Id);
             if (previousInDb == null)
                 return new JsonResult(NotFound());
             previousInDb = previous;
@@ -50,7 +51,7 @@ public class PreviousController : ControllerBase
         var previous = _context.Previouses.Find(id);
         if (previous == null)
             return new JsonResult(NotFound());
-        _context.Instructors.Remove(previous);
+        _context.Previouses.Remove(previous);
         _context.SaveChanges();
         return new JsonResult(NoContent());
     }
