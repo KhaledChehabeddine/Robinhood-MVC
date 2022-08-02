@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using robinhood_mvc.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<RobinhoodContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("LocalConnectionString"))
+);
 
 var app = builder.Build();
 
