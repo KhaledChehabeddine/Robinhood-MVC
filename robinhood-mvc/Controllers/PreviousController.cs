@@ -10,7 +10,7 @@ namespace robinhood_mvc.Controllers;
 public class PreviousController : ControllerBase
 {
     private readonly RobinhoodContext _context;
-    
+
     public PreviousController(RobinhoodContext context)
     {
         _context = context;
