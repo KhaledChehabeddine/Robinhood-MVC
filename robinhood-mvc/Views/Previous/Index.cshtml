@@ -1,0 +1,39 @@
+@model List<Previous>
+@{ ViewData["Title"] = "Previous Page"; }
+
+<h1 class="text-center mb-3">Previouses</h1>
+
+<table class="table table-hover table-striped mb-5">
+	<thead class="table-dark">
+	<tr>
+		<th scope="col">#</th>
+		<th class="text-center" scope="col">File Name</th>
+		<th class="text-center" scope="col">Course Name</th>
+		<th class="text-center" scope="col">Rating</th>
+		<th class="text-center" scope="col">Action</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var previous in Model)
+	{
+		<tr>
+			<th scope="row">@previous.Id</th>
+			<td class="text-center">@previous.Filename</td>
+			<td class="text-center">@previous.CourseName</td>
+			<td class="text-center">@previous.Rating</td>
+			<td class="text-center">
+				<a asp-action="Get" asp-controller="Previous" asp-route-id="@previous.Id"
+				   class="btn btn-warning">View</a>
+				<a asp-action="Edit" asp-controller="Previous" asp-route-id="@previous.Id"
+				   class="btn btn-primary">Edit</a>
+				<a asp-action="Delete" asp-controller="Previous" asp-route-id="@previous.Id"
+				   class="btn btn-danger">Delete</a>
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+	<a asp-action="Create" asp-controller="Previous" class="btn btn-success">Add Previous</a>
+</div>

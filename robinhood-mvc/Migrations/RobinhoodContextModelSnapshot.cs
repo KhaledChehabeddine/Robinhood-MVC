@@ -169,26 +169,6 @@ namespace robinhood_mvc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Instructor = "Imad Moukadem",
-                            Name = "CMPS 278",
-                            Rating = 5,
-                            Semester = "Summer",
-                            Year = "2021-2022"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Instructor = "Mahmoud Bdeir",
-                            Name = "CMPS 253",
-                            Rating = 3,
-                            Semester = "Spring",
-                            Year = "2021-2022"
-                        });
                 });
 
             modelBuilder.Entity("robinhood_mvc.Models.Previous", b =>
@@ -197,12 +177,11 @@ namespace robinhood_mvc.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Coursename")
+                    b.Property<string>("CourseName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Filename")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Rating")

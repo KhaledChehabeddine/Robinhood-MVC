@@ -47,8 +47,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/Views/Previous/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJldmlvdXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/Views/Previous/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJldmlvdXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/Views/Previous/Get.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJldmlvdXMvR2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/Views/Previous/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJldmlvdXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/khaledchehabeddine/Documents/GitHub/robinhood-mvc/robinhood-mvc/Views/Shared/Error.cshtml]
