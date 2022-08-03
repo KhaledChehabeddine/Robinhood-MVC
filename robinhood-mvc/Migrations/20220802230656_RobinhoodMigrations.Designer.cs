@@ -10,7 +10,7 @@ using robinhood_mvc.Data;
 namespace robinhood_mvc.Migrations
 {
     [DbContext(typeof(RobinhoodContext))]
-    [Migration("20220802163410_RobinhoodMigrations")]
+    [Migration("20220802230656_RobinhoodMigrations")]
     partial class RobinhoodMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,44 @@ namespace robinhood_mvc.Migrations
                             Rating = 3,
                             Semester = "Spring",
                             Year = "2021-2022"
+                        });
+                });
+
+            modelBuilder.Entity("robinhood_mvc.Models.Previous", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Coursename")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Filename")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Previouses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Coursename = "CMPS 278",
+                            Filename = "CMPS 278 Midterm",
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Coursename = "CMPS 253",
+                            Filename = "CMPS 253 Midterm",
+                            Rating = 4
                         });
                 });
 #pragma warning restore 612, 618

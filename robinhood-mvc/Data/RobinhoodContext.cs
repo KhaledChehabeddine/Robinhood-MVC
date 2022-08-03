@@ -7,7 +7,7 @@ public class RobinhoodContext : DbContext
 {
     public DbSet<Course> Courses { get; set; }
     public DbSet<Previous> Previouses { get; set; }
-    
+
     // public DbSet<Instructor> Instructors { get; set; }
 
     public RobinhoodContext(DbContextOptions<RobinhoodContext> options) : base(options) { }
@@ -32,6 +32,25 @@ public class RobinhoodContext : DbContext
                 Rating = 3,
                 Semester = "Spring",
                 Year = "2021-2022"
+            }
+        );
+
+        modelBuilder.Entity<Previous>().HasData(
+            new Previous
+            {
+                Id = 1,
+                Filename = "CMPS 278 Midterm",
+                Coursename = "CMPS 278",
+                Rating = 5,
+
+            },
+            new Previous
+            {
+                Id = 2,
+                Filename = "CMPS 253 Midterm",
+                Coursename = "CMPS 253",
+                Rating = 4,
+
             }
         );
     }
