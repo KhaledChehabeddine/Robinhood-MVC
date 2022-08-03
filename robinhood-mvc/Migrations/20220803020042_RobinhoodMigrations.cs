@@ -73,8 +73,8 @@ namespace robinhood_mvc.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Filename = table.Column<string>(type: "TEXT", nullable: false),
-                    Coursename = table.Column<string>(type: "TEXT", nullable: false),
+                    Filename = table.Column<string>(type: "TEXT", nullable: true),
+                    CourseName = table.Column<string>(type: "TEXT", nullable: false),
                     Rating = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -187,16 +187,6 @@ namespace robinhood_mvc.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.InsertData(
-                table: "Courses",
-                columns: new[] { "Id", "Instructor", "Name", "Rating", "Semester", "Year" },
-                values: new object[] { 1, "Imad Moukadem", "CMPS 278", 5, "Summer", "2021-2022" });
-
-            migrationBuilder.InsertData(
-                table: "Courses",
-                columns: new[] { "Id", "Instructor", "Name", "Rating", "Semester", "Year" },
-                values: new object[] { 2, "Mahmoud Bdeir", "CMPS 253", 3, "Spring", "2021-2022" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

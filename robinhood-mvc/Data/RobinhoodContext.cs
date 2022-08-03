@@ -18,28 +18,26 @@ public class RobinhoodContext : IdentityDbContext<User>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        // modelBuilder.Entity<User>().HasKey(user => new { user.Email, user.PasswordHash });
-        
-        modelBuilder.Entity<Course>().HasData(
-            new Course
-            {
-                Id = 1,
-                Instructor = "Imad Moukadem",
-                Name = "CMPS 278",
-                Rating = 5,
-                Semester = "Summer",
-                Year = "2021-2022"
-            },
-            new Course
-            {
-                Id = 2,
-                Instructor = "Mahmoud Bdeir",
-                Name = "CMPS 253",
-                Rating = 3,
-                Semester = "Spring",
-                Year = "2021-2022"
-            }
-        );
+        // modelBuilder.Entity<Course>().HasData(
+        //     new Course
+        //     {
+        //         Id = 1,
+        //         Instructor = "Imad Moukadem",
+        //         Name = "CMPS 278",
+        //         Rating = 5,
+        //         Semester = "Summer",
+        //         Year = "2021-2022"
+        //     },
+        //     new Course
+        //     {
+        //         Id = 2,
+        //         Instructor = "Mahmoud Bdeir",
+        //         Name = "CMPS 253",
+        //         Rating = 3,
+        //         Semester = "Spring",
+        //         Year = "2021-2022"
+        //     }
+        // );
     }
 
     public static async Task CreateAdminUser(IServiceProvider serviceProvider)
