@@ -8,7 +8,7 @@ public interface IPreviousRepo
 
     Previous Get(int id);
 
-    List<Instructor> GetAll();
+    List<Previous> GetAll();
 
     void Edit(Previous newPrevious);
 

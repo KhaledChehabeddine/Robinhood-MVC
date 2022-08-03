@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using robinhood_mvc.Models;
+using robinhood_mvc.Repo;
 
 namespace robinhood_mvc.Controllers;
 
 public class AccountController : Controller
 {
-    private UserManager<User> _userManager;
-    private SignInManager<User> _signInManager;
+    private readonly UserManager<User> _userManager;
+    private readonly SignInManager<User> _signInManager;
 
     public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
     {

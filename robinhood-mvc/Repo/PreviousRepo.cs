@@ -3,7 +3,7 @@ using robinhood_mvc.Models;
 
 namespace robinhood_mvc.Repo;
 
-public class PreviousRepo
+public class PreviousRepo : IPreviousRepo
 {
     private readonly RobinhoodContext _context;
 
