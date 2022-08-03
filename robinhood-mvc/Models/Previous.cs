@@ -7,6 +7,7 @@ public class Previous
     [Key]
     public int Id { get; set; }
     
+    [Required(ErrorMessage = "Please enter a file name.")]
     public string? Filename { get; set; }
     
     [Required(ErrorMessage = "Please enter a course name.")]

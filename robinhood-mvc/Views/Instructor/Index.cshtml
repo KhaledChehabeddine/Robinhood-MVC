@@ -1,0 +1,39 @@
+@model List<Instructor>
+@{ ViewData["Title"] = "Instructor Page"; }
+
+<h1 class="text-center mb-3">Instructors</h1>
+
+<table class="table table-hover table-striped mb-5">
+	<thead class="table-dark">
+	<tr>
+		<th scope="col">#</th>
+		<th class="text-center" scope="col">Instructor Name</th>
+		<th class="text-center" scope="col">Course Name</th>
+		<th class="text-center" scope="col">Rating</th>
+		<th class="text-center" scope="col">Action</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var instructor in Model)
+	{
+		<tr>
+			<th scope="row">@instructor.Id</th>
+			<td class="text-center">@instructor.InstructorName</td>
+			<td class="text-center">@instructor.CourseName</td>
+			<td class="text-center">@instructor.Rating</td>
+			<td class="text-center">
+				<a asp-action="Get" asp-controller="Instructor" asp-route-id="@instructor.Id"
+				   class="btn btn-warning">View</a>
+				<a asp-action="Edit" asp-controller="Instructor" asp-route-id="@instructor.Id"
+				   class="btn btn-primary">Edit</a>
+				<a asp-action="Delete" asp-controller="Instructor" asp-route-id="@instructor.Id"
+				   class="btn btn-danger">Delete</a>
+			</td>
+		</tr>
+	}
+	</tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+	<a asp-action="Create" asp-controller="Instructor" class="btn btn-success">Add Instructor</a>
+</div>
