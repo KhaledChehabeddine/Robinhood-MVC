@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using robinhood_mvc.Data;
 using robinhood_mvc.Models;
 
 namespace robinhood_mvc.Controllers;
 
+[Authorize]
 public class CourseController : Controller
 {
     private readonly RobinhoodContext _context;

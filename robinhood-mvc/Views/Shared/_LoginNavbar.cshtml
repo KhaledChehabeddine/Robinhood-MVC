@@ -1,0 +1,32 @@
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager;
+
+<ul class="navbar-nav">
+	@if (SignInManager.IsSignedIn(User))
+	{
+		<li class="nav-item">
+			<form asp-action="LogOut"
+			      asp-controller="Account"
+			      method="Post">
+				<input class="btn btn-outline-dark" type="submit" value="Log Out"/>
+				<span class="text-dark">@User.Identity.Name</span>
+			</form>
+		</li>
+	}
+	else
+	{
+		var action = ViewContext.RouteData.Values["action"]?.ToString();
+		
+		<li class="nav-item">
+			<a asp-action="Register"
+			   asp-controller="Account"
+			   class="nav-link">Register</a>
+		</li>
+		<li>
+			<a asp-action="LogIn"
+			   asp-controller="Account"
+			   class="nav-link btn btn-outline-dark">Log in</a>
+		</li>
+	}
+</ul>

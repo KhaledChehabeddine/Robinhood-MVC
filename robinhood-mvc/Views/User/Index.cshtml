@@ -1,0 +1,99 @@
+@model UserView
+@{ ViewData["Title"] = " | Manage Users"; }
+
+<h1 class="mb-2">Manage Users</h1>
+
+<h5 class="mt-2">
+	<a asp-action="Add">Add a User</a>
+</h5>
+
+<table class="table table-bordered table-striped table-sm">
+	<thead>
+	<tr>
+		<th>Username</th>
+		<th>Roles</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	@if (!Model.Users.Any())
+	{
+		<tr>
+			<td colspan="5">There are no user accounts.</td>
+		</tr>
+	}
+	else
+	{
+		@foreach (var user in Model.Users)
+		{
+			<tr>
+				<td>@user.UserName</td>
+				<td>
+					@foreach (var roleName in user.RoleNames)
+					{
+						<div>@roleName</div>
+					}
+				</td>
+				<td>
+					<form asp-action="Delete"
+					      asp-route-id="@user.Id"
+					      method="post">
+						<button class="btn btn-primary" type="submit">Delete User</button>
+					</form>
+				</td>
+				<td>
+					<form asp-action="AddToAdmin"
+					      asp-route-id="@user.Id"
+					      method="post">
+						<button class="btn btn-primary" type="submit">Add to Admin</button>
+					</form>
+				</td>
+				<td>
+					<form asp-action="RemoveFromAdmin"
+					      asp-route-id="@user.Id"
+					      method="post">
+						<button class="btn btn-primary" type="submit">Remove from Admin</button>
+					</form>
+				</td>
+			</tr>
+		}
+	}
+	</tbody>
+</table>
+
+<h1 class="mb-2">Manage Roles</h1>
+@if (!Model.Roles.Any())
+{
+	<form asp-action="CreateAdminRole"
+	      method="post">
+		<button class="btn btn-primary" type="submit">Create Admin Role</button>
+	</form>
+}
+else
+{
+	<table class="table table-bordered table-striped table-sm">
+		<thead>
+		<tr>
+			<th>Role</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		@foreach (var role in Model.Roles)
+		{
+			<tr>
+				<td>@role.Name</td>
+				<td>
+					<form asp-action="DeleteRole"
+					      asp-route-id="@role.Id"
+					      method="post">
+						<button class="btn btn-primary" type="submit">Delete Role</button>
+					</form>
+				</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+}
