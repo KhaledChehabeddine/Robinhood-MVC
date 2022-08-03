@@ -2,18 +2,18 @@
 using Microsoft.AspNetCore.Mvc;
 using robinhood_mvc.Data;
 using robinhood_mvc.Models;
+using robinhood_mvc.Repo;
 
 namespace robinhood_mvc.Controllers;
 
 [Authorize]
 public class PreviousController : Controller
 {
-    private readonly RobinhoodContext _context;
+    private readonly PreviousRepo _previousRepo;
 
-    public PreviousController(RobinhoodContext context) { _context = context; }
+    public PreviousController(RobinhoodContext context) { _previousRepo = new PreviousRepo(context); }
 
-    [HttpGet]
-    public IActionResult Index() { return View(_context.Previouses.ToList()); }
+    public IActionResult Index() { return View(_previousRepo.GetAll()); }
 
     [HttpGet]
     public IActionResult Create() { return View(); }
@@ -21,42 +21,35 @@ public class PreviousController : Controller
     [HttpPost]
     public IActionResult Create(Previous previous)
     {
-        _context.Previouses.Add(previous);
-        _context.SaveChanges();
+        _previousRepo.Create(previous);
         return RedirectToAction("Index");
     }
 
     [HttpGet("Previous/{id:int}")]
     public IActionResult Get(int id)
     {
-        var previous = _context.Previouses.Find(id);
-        return View(previous);
+        var instructor = _previousRepo.Get(id);
+        return View(instructor);
     }
 
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        var previous = _context.Previouses.Find(id);
-        return View(previous);
+        var instructor = _previousRepo.Get(id);
+        return View(instructor);
     }
-
+    
     [HttpPost]
-    public IActionResult Edit(Previous newPrevious)
+    public IActionResult Edit(Previous previous)
     {
-        var oldPrevious = _context.Previouses.Find(newPrevious.Id);
-        if (oldPrevious != null) _context.Previouses.Remove(oldPrevious);
-        _context.Previouses.Add(newPrevious);
-        _context.SaveChanges();
+        _previousRepo.Edit(previous);
         return RedirectToAction("Index");
     }
 
     [HttpGet]
     public IActionResult Delete(int id)
     {
-        var previous = _context.Previouses.Find(id);
-        if (previous == null) return RedirectToAction("Index");
-        _context.Previouses.Remove(previous);
-        _context.SaveChanges();
+        _previousRepo.Delete(id);
         return RedirectToAction("Index");
     }
 }

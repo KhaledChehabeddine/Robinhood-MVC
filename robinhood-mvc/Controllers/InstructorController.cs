@@ -2,18 +2,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using robinhood_mvc.Data;
 using robinhood_mvc.Models;
+using robinhood_mvc.Repo;
 
 namespace robinhood_mvc.Controllers;
 
 [Authorize]
 public class InstructorController : Controller
 {
-    private readonly RobinhoodContext _context;
+    private readonly InstructorRepo _instructorRepo;
 
-    public InstructorController(RobinhoodContext context) { _context = context; }
+    public InstructorController(RobinhoodContext context) { _instructorRepo = new InstructorRepo(context); }
 
-    [HttpGet]
-    public IActionResult Index() { return View(_context.Instructors.ToList()); }
+    public IActionResult Index() { return View(_instructorRepo.GetAll()); }
 
     [HttpGet]
     public IActionResult Create() { return View(); }
@@ -21,42 +21,35 @@ public class InstructorController : Controller
     [HttpPost]
     public IActionResult Create(Instructor instructor)
     {
-        _context.Instructors.Add(instructor);
-        _context.SaveChanges();
+        _instructorRepo.Create(instructor);
         return RedirectToAction("Index");
     }
 
     [HttpGet("Instructor/{id:int}")]
     public IActionResult Get(int id)
     {
-        var instructor = _context.Instructors.Find(id);
+        var instructor = _instructorRepo.Get(id);
         return View(instructor);
     }
 
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        var instructor = _context.Instructors.Find(id);
+        var instructor = _instructorRepo.Get(id);
         return View(instructor);
     }
-
+    
     [HttpPost]
-    public IActionResult Edit(Instructor newInstructor)
+    public IActionResult Edit(Instructor instructor)
     {
-        var oldInstructor = _context.Instructors.Find(newInstructor.Id);
-        if (oldInstructor != null) _context.Instructors.Remove(oldInstructor);
-        _context.Instructors.Add(newInstructor);
-        _context.SaveChanges();
+        _instructorRepo.Edit(instructor);
         return RedirectToAction("Index");
     }
 
     [HttpGet]
     public IActionResult Delete(int id)
     {
-        var instructor = _context.Instructors.Find(id);
-        if (instructor == null) return RedirectToAction("Index");
-        _context.Instructors.Remove(instructor);
-        _context.SaveChanges();
+        _instructorRepo.Delete(id);
         return RedirectToAction("Index");
     }
 }
