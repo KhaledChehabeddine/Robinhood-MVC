@@ -10,8 +10,7 @@ public class RobinhoodContext : IdentityDbContext<User>
     public DbSet<User> Users { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<Previous> Previouses { get; set; }
-    
-    // public DbSet<Instructor> Instructors { get; set; }
+    public DbSet<Instructor> Instructors { get; set; }
 
     public RobinhoodContext(DbContextOptions<RobinhoodContext> options) : base(options) { }
 

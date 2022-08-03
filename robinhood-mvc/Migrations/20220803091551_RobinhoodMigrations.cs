@@ -56,15 +56,30 @@ namespace robinhood_mvc.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Instructor = table.Column<string>(type: "TEXT", nullable: true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Instructor = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     Rating = table.Column<int>(type: "INTEGER", nullable: false),
-                    Semester = table.Column<string>(type: "TEXT", nullable: true),
-                    Year = table.Column<string>(type: "TEXT", nullable: true)
+                    Semester = table.Column<string>(type: "TEXT", nullable: false),
+                    Year = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Courses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Instructors",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    InstructorName = table.Column<string>(type: "TEXT", nullable: false),
+                    CourseName = table.Column<string>(type: "TEXT", nullable: false),
+                    Rating = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Instructors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,7 +88,7 @@ namespace robinhood_mvc.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Filename = table.Column<string>(type: "TEXT", nullable: true),
+                    Filename = table.Column<string>(type: "TEXT", nullable: false),
                     CourseName = table.Column<string>(type: "TEXT", nullable: false),
                     Rating = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -245,6 +260,9 @@ namespace robinhood_mvc.Migrations
 
             migrationBuilder.DropTable(
                 name: "Courses");
+
+            migrationBuilder.DropTable(
+                name: "Instructors");
 
             migrationBuilder.DropTable(
                 name: "Previouses");

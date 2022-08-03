@@ -11,7 +11,7 @@ using robinhood_mvc.Data;
 namespace robinhood_mvc.Migrations
 {
     [DbContext(typeof(RobinhoodContext))]
-    [Migration("20220803020042_RobinhoodMigrations")]
+    [Migration("20220803091551_RobinhoodMigrations")]
     partial class RobinhoodMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -154,23 +154,49 @@ namespace robinhood_mvc.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Instructor")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Rating")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Semester")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Year")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("robinhood_mvc.Models.Instructor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CourseName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("InstructorName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Instructors");
                 });
 
             modelBuilder.Entity("robinhood_mvc.Models.Previous", b =>
@@ -184,6 +210,7 @@ namespace robinhood_mvc.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Filename")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Rating")
